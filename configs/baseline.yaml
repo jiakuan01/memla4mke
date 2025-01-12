@@ -1,0 +1,27 @@
+hydra:
+    run:
+        dir: outputs/baselines/${model}/${edit_lang}/${alg}-${desc}-${now:%Y-%m-%d-%H-%M-%S}
+
+# defaults:
+#   - override hydra/job_logging: custom
+desc: base
+alg: MEMIT
+num_edits: 1
+edit_lang: en
+eval_langs:
+  - "en"
+  - "zh"
+  - "fr"
+  - "de"
+  - "it"
+  - "es"
+  - "pt"
+  - "pl"
+  - "ru"
+  - "ja"
+  - "ko"
+  - "th"
+
+data_fname: "./data/MLiKE_v2.json"
+hparams_fname: "./baselines/hparams"
+test_ids_fname: "./data/test_ids_2000.txt"

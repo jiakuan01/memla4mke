@@ -1,0 +1,41 @@
+hydra:
+    run:
+        dir: outputs/memla/${edit_lang}/${expname}-${now:%Y-%m-%d-%H-%M-%S}
+expname: simple_test
+
+llm:
+    model_name: "ai-forever/mGPT"
+    layer_module: "transformer.h.{}"
+    mlp_c_fc_module: "mlp.c_fc"
+    mlp_c_proj_module: "mlp.c_proj"
+
+languages:
+    - "en"
+    - "zh"
+    - "fr"
+    - "de"
+    - "it"
+    - "es"
+    - "pt"
+    - "pl"
+    - "ru"
+    - "ja"
+    - "ko"
+    - "th"
+
+editor:
+    num_steps: 60
+    learning_rate: 0.001
+
+seed: 0
+edit_lang: "en"
+eval_langs:
+  - "en"
+  - "zh"
+cross_langs:
+  - "en"
+  - "zh"
+  - "fr"
+data_fname: "./data/MLiKE_v2.json"
+test_ids_fname: "./data/test_ids_2000.txt"
+neuron_dir: "./data/neurons_MLiKE/"
